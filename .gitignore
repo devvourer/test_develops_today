@@ -1,0 +1,9 @@
+# Jetbrains IDE
+.idea/
+
+# Logs
+*.log
+
+#Environment
+.env
+.env.*
