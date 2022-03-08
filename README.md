@@ -24,3 +24,10 @@ COMPOSE_PROFILES=nginx,celery
 docker-compose build
 docker-compose up
 ```
+
+## Postman API Documentation
+
+ - [Postman api documentation](https://www.postman.com/netex-kassa/workspace/test-developstoday/documentation/14689555-120ed368-739d-49b7-9b49-a7dfc3efff6e)
+
+## Link to deployed project
+ - [link](http://140.82.32.239:8000/api/article/)
