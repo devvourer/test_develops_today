@@ -1,22 +1,26 @@
 from rest_framework import serializers as srz
-from django.contrib.auth.models import User
 
 from .models import Article, Comment
 
 
 class CommentSerializer(srz.ModelSerializer):
     author = srz.SlugRelatedField(
-        slug_field="username", queryset=User.objects.all(), read_only=False
+        slug_field="username", read_only=True
     )
 
     class Meta:
         model = Comment
         fields = ["content", "creation_date", "article", "author"]
 
+    def create(self, validated_data):
+        validated_data['author'] = self.context['request'].user
+
+        return validated_data
+
 
 class ArticleSerializer(srz.ModelSerializer):
     author = srz.SlugRelatedField(
-        slug_field="username", queryset=User.objects.all(), read_only=False
+        slug_field="username", read_only=True
     )
     comments_count = srz.IntegerField(read_only=True)
     comments = CommentSerializer(many=True, read_only=True)
@@ -34,3 +38,8 @@ class ArticleSerializer(srz.ModelSerializer):
             "comments_count",
             "comments",
         ]
+
+    def create(self, validated_data):
+        validated_data['author'] = self.context['request'].user
+
+        return validated_data
