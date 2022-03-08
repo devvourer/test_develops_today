@@ -108,6 +108,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
+STATIC_ROOT = "static"
+MEDIA_ROOT = "media"
+MEDIA_URL = "/media/"
 
 
 # Default primary key field type
@@ -125,8 +128,8 @@ CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_BACKEND = "redis://redis:6379/0"
 
 CELERYBEAT_SCHEDULE = {
-    'reset_upvotes_count': {
-        'task': 'reset_upvotes_count',
-        'schedule': crontab(hour=23, minute=0)
+    "reset_upvotes_count": {
+        "task": "reset_upvotes_count",
+        "schedule": crontab(hour=23, minute=0),
     }
 }

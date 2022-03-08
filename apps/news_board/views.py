@@ -27,3 +27,4 @@ class CommentViewSet(ModelViewSet):
     queryset = Comment.objects.all()
     permission_classes = [IsOwnerOrReadOnly, IsAdminUser]
     serializer_class = CommentSerializer
+    http_method_names = ["post", "put"]
