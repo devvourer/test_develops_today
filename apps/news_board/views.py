@@ -13,7 +13,7 @@ from .tasks import upvote_article
 class ArticleViewSet(ModelViewSet):
     model = Article
     queryset = Article.objects.with_comments_count()
-    permission_classes = [IsOwnerOrReadOnly, IsAdminUser]
+    permission_classes = [IsOwnerOrReadOnly]
     serializer_class = ArticleSerializer
 
     @action(methods=["post"],
