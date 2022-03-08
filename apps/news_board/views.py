@@ -16,7 +16,9 @@ class ArticleViewSet(ModelViewSet):
     permission_classes = [IsOwnerOrReadOnly, IsAdminUser]
     serializer_class = ArticleSerializer
 
-    @action(methods=["post"], permission_classes=[IsAuthenticated], detail=True)
+    @action(methods=["post"],
+            permission_classes=[IsAuthenticated],
+            detail=True)
     def upvote(self, request, pk=None):
         upvote_article.delay(pk)
         return Response(status=status.HTTP_200_OK)

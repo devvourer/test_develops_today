@@ -21,7 +21,9 @@ class Comment(models.Model):
     article = models.ForeignKey(
         Article, on_delete=models.CASCADE, related_name="comments"
     )
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="comments"
+    )
     content = models.CharField(max_length=500)
     creation_date = models.DateTimeField(auto_now=True)
 

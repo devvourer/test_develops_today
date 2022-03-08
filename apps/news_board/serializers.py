@@ -10,7 +10,7 @@ class CommentSerializer(srz.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ["content", "creation_date", "article", "author"]
+        fields = ["content", "creation_date", "article", "author", "id"]
 
     def create(self, validated_data):
         validated_data['author'] = self.context['request'].user
