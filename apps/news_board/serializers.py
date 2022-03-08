@@ -15,7 +15,7 @@ class CommentSerializer(srz.ModelSerializer):
     def create(self, validated_data):
         validated_data['author'] = self.context['request'].user
 
-        return validated_data
+        return super().create(validated_data)
 
 
 class ArticleSerializer(srz.ModelSerializer):
@@ -42,4 +42,4 @@ class ArticleSerializer(srz.ModelSerializer):
     def create(self, validated_data):
         validated_data['author'] = self.context['request'].user
 
-        return validated_data
+        return super().create(validated_data)
