@@ -8,7 +8,7 @@ class Article(models.Model):
     title = models.CharField(max_length=255)
     link = models.URLField(verbose_name="link to post")
     creation_date = models.DateTimeField(auto_now=True)
-    amount_of_upvotes = models.PositiveSmallIntegerField(null=True)
+    amount_of_upvotes = models.PositiveSmallIntegerField(default=0)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     objects = ArticleQuerySet.as_manager()

@@ -1,6 +1,8 @@
 from pathlib import Path
 from decouple import config
 
+from celery.schedules import crontab
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config("SECRET_KEY", default="hackme")
@@ -121,3 +123,10 @@ CELERY_BROKER_URL = config("CELERY_BROKER_URL", default="redis://redis:6379/0")
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_BACKEND = "redis://redis:6379/0"
+
+CELERYBEAT_SCHEDULE = {
+    'reset_upvotes_count': {
+        'task': 'reset_upvotes_count',
+        'schedule': crontab(hour=23, minute=0)
+    }
+}

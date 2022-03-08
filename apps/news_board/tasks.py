@@ -11,3 +11,8 @@ def upvote_article(article_id: int) -> None:
         article.save()
     except Article.DoesNotExist as e:
         raise e
+
+
+@app.task()
+def reset_upvotes_count() -> None:
+    Article.objects.filter().update(amount_of_upvotes=0)
