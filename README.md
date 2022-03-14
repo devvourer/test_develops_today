@@ -1,5 +1,22 @@
 # Test assessment by DevelopsToday
+## **Functional Requirements**
 
+- Create CRUD API to manage news posts. The post will have the next fields: title, link, creation date, amount of upvotes, author-name
+- Posts should have CRUD API to manage comments on them. The comment will have the next fields: author-name, content, creation date
+- There should be an endpoint to upvote the post
+- We should have a recurring job running once a day to reset post upvotes count
+
+## **Technical Requirements**
+
+- Code should be written with Python 3
+- REST API should be Django and Django REST Framework based
+- API should be well documented with Postman collection. Make sure to use [Postman environments and variables](https://learning.postman.com/docs/postman/variables-and-environments/variables/#understanding-variables-and-environments), so you can switch between local API and deployed version. Add Postman collection link to the README
+- API has to run as a Docker container. API + Postgres should be launched with docker-compose
+- Code should be formatted with [Black](https://github.com/psf/black)
+- Necessary to make sure that Flake8 linter passes. Would be great to have typing with [pyright](https://github.com/microsoft/pyright) as well
+- The project should have clear README with steps to run it
+- The code should be clean, passing linter checks and simple to understand. Code quality matters a lot
+- Deploy API for testing to [Heroku](https://www.heroku.com/) or similar service. Add deployment link to the README
 
 ## 🐳 Requirements
 
